@@ -1,19 +1,19 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
     <!-- external css style sheet -->
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css" />
     <!-- font awesome -->
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous" />
     <!-- google fonts -->
-
+    <link href="https://fonts.googleapis.com/css?family=Delius+Swash+Caps|Patrick+Hand+SC&display=swap" rel="stylesheet" />
 
     <!-- title -->
     <title>Profile generator</title>
@@ -22,6 +22,8 @@
     <style>
         body {
             -webkit-print-color-adjust: exact !important;
+            font-family: "Delius Swash Caps", cursive;
+            font-family: "Patrick Hand SC", cursive;
         }
         
         #profile-pic {
@@ -34,12 +36,14 @@
         }
         
         .btn {
-            margin-left: 10px;
+            margin-left: -10px;
+            margin-bottom: 15px;
             background-color: #fff;
             color: black;
             border: 1px solid black;
             border-radius: 8px;
-            transition: transform .2s;
+            transition: transform 0.2s;
+            font-size: 20px;
         }
         
         .btn:hover {
@@ -48,27 +52,39 @@
             transform: scale(1.1);
         }
         
+        .btn,
+        .second {
+            margin-left: 20px;
+        }
+        
         .container-fluid {
+            margin-top: 5px;
             border: 1px solid black;
             text-align: center;
+            border-radius: 20px;
         }
         
         #info {
             border: 1px solid black;
             text-align: center;
-            margin-top: 50px;
+            margin-top: 40px;
             padding: 20px;
+            border-radius: 20px;
         }
         
         #layout {
-            margin-top: 30px;
+            margin-top: 20px;
             text-align: center;
+            border-radius: 20px;
+            font-size: 25px;
         }
         
         .col {
             border: 1px solid black;
             padding: 20px;
             margin-left: 25px;
+            border-radius: 20px;
+            font-size: 20px;
         }
         
         #adjust {
@@ -78,42 +94,52 @@
         .w-100 {
             margin: 10px;
         }
+        
+        #bcg-color {
+            max-width: 100%;
+            max-height: 100%;
+        }
     </style>
-
 </head>
 
 <body>
-    <!-- container fluid contains img,name,bio,buttons -->
-    <div class="container-fluid">
-        <img src="https://www.w3schools.com/howto/img_avatar.png" id="profile-pic" alt="Profile-pic">
+    <!-- main div so that i can call background color -->
 
+    <div class="container" id="bcg-color">
+        <!-- container fluid contains img,name,bio,buttons -->
+        <div class="container-fluid">
+            <img src="https://www.w3schools.com/howto/img_avatar.png" id="profile-pic" alt="Profile-pic" />
 
-        <p class="h1">Nikola Jovanovic </p>
+            <p class="h1">Nikola Jovanovic</p>
 
-        <p class="h5">Front & back end web developer</p>
-        <br>
-        <button type="button" class="btn">Github</button>
-        <button type="button" class="btn">My Blog</button>
-    </div>
-    <!-- end of container fluid -->
-    <!-- container for username & location -->
-    <div class="container" id="info">
-        <p class="h3">Nikola4work</p>
-        <p class="h6">Arlington, V.A </p>
-    </div>
-    <!-- end of container username & location -->
+            <p class="h5">Front & back end web developer</p>
 
-    <!-- grid layout -->
-    <div class="container" id="layout">
-        <div class="row">
-            <div class="col" id="adjust">Public Repositories</div>
-            <div class="col">GitHub Stars</div>
-            <div class="w-100"></div>
-            <div class="col" id="adjust">Followers</div>
-            <div class="col">Following</div>
+            <button type="button" class="btn">Github</button>
+            <button type="button" class="btn second">My Blog</button>
+            <br />
         </div>
+
+        <!-- end of container fluid -->
+        <!-- container for username & location -->
+        <div class="container" id="info">
+            <p class="h3">Nikola4work</p>
+            <p class="h6">Arlington, V.A</p>
+        </div>
+        <!-- end of container username & location -->
+
+        <!-- grid layout -->
+        <div class="container" id="layout">
+            <div class="row">
+                <div class="col one" id="adjust">Public Repositories</div>
+                <div class="col two">GitHub Stars</div>
+                <div class="w-100"></div>
+                <div class="col three" id="adjust">Followers</div>
+                <div class="col four">Following</div>
+            </div>
+        </div>
+        <!-- end of grid location -->
     </div>
-    <!-- end of grid location -->
+    <!-- end of main div so that i can call background color -->
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

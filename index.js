@@ -10,9 +10,7 @@ var gs = require("github-scraper");
 inquirer
 
 // This will ask user to eneter username and favvorite color
-    .prompt([
-
-        {
+    .prompt([{
             type: "input",
             message: "Enter a github username",
             name: "username"
@@ -20,12 +18,11 @@ inquirer
 
         {
             type: "input",
-            message: "What is your favorite color?",
-            name: "favColor"
+            message: "Enter your favorite color?",
+            name: "favoriteColor"
         }
     ])
     .then(function(response) {
-
         // returns the users response for github username
         var githubUrl = `https://api.github.com/users/${response.username}`;
 
@@ -33,13 +30,13 @@ inquirer
         var starCountUrl = `https://api.github.com/users/${response.username}/repos?per_page=100`;
 
         //Using Axios to retrieve the user data from github api
-        axios.get(githubUrl)
+        axios
+            .get(githubUrl)
             .then(function(data) {
-
                 //Console.log the returned data
                 console.log(data);
 
-                //convert html to PDF 
+                //convert html to PDF
                 var conversion = electron({
                     converterPath: electron.converters.PDF
                 });
@@ -67,9 +64,13 @@ inquirer
     <title>Profile generator</title>
 
     <!-- css style -->
+   
+        
     <style>
         body {
             -webkit-print-color-adjust: exact !important;
+            font-family: "Delius Swash Caps", cursive;
+            font-family: "Patrick Hand SC", cursive;
         }
         
         #profile-pic {
@@ -82,12 +83,14 @@ inquirer
         }
         
         .btn {
-            margin-left: 10px;
+            margin-left: -10px;
+            margin-bottom: 15px;
             background-color: #fff;
             color: black;
             border: 1px solid black;
             border-radius: 8px;
-            transition: transform .2s;
+            transition: transform 0.2s;
+            font-size: 20px;
         }
         
         .btn:hover {
@@ -96,35 +99,63 @@ inquirer
             transform: scale(1.1);
         }
         
+        .btn,
+        .second {
+            margin-left: 20px;
+        }
+        
         .container-fluid {
+            margin-top: 5px;
             border: 1px solid black;
             text-align: center;
+            border-radius: 20px;
+            background-color: ${response.favoriteColor};
+
         }
         
         #info {
             border: 1px solid black;
             text-align: center;
-            margin-top: 50px;
+            margin-top: 40px;
             padding: 20px;
+            border-radius: 20px;
+            background-color: ${response.favoriteColor};
+
         }
         
         #layout {
-            margin-top: 30px;
+            margin-top: 20px;
             text-align: center;
+            border-radius: 20px;
+            font-size: 25px;
+            
         }
         
         .col {
             border: 1px solid black;
             padding: 20px;
             margin-left: 25px;
+            border-radius: 20px;
+            font-size: 20px;
+            background-color: ${response.favoriteColor};
+
         }
+
+        
         
         #adjust {
             margin-left: 5px;
+           
         }
         
         .w-100 {
             margin: 10px;
+        }
+        
+        #bcg-color {
+            max-width: 100%;
+            max-height: 100%;
+            
         }
     </style>
 
@@ -174,21 +205,16 @@ inquirer
                     },
 
                     function(err, result) {
-
                         if (err) {
                             return console.error(err);
                         }
 
-
                         result.stream.pipe(fs.createWriteStream(`${data.data.login}.pdf`));
                         conversion.kill();
-                    });
-
+                    }
+                );
             })
             .catch(function(error) {
-
                 console.log(error);
-            })
-
-
+            });
     });

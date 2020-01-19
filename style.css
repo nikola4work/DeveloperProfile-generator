@@ -1,0 +1,28 @@
+.container-fluid {
+    margin-top: 5px;
+    border: 1px solid black;
+    text-align: center;
+    border-radius: 20px;
+    -webkit-box-shadow: 5px 5px 15px 5px #000000;
+    box-shadow: 5px 5px 15px 5px #000000;
+}
+
+#info {
+    border: 1px solid black;
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    border-radius: 20px;
+    -webkit-box-shadow: 5px 5px 15px 5px #000000;
+    box-shadow: 5px 5px 15px 5px #000000;
+}
+
+.col {
+    border: 1px solid black;
+    padding: 20px;
+    margin-left: 25px;
+    border-radius: 20px;
+    font-size: 20px;
+    -webkit-box-shadow: 5px 5px 15px 5px #000000;
+    box-shadow: 5px 5px 15px 5px #000000;
+}
