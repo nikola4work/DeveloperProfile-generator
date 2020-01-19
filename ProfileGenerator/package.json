@@ -1,0 +1,23 @@
+{
+  "name": "profilegenerator",
+  "version": "1.0.0",
+  "description": "HW-7",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "nikola4work"
+  },
+  "author": "Niko",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.19.1",
+    "electron": "^5.0.12",
+    "electron-html-to": "^2.6.0",
+    "fs": "0.0.1-security",
+    "github-scraper": "^6.8.0",
+    "inquirer": "^7.0.3"
+  }
+}
