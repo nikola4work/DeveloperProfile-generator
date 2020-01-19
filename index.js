@@ -164,32 +164,32 @@ inquirer
 <body>
     <!-- container fluid contains img,name,bio,buttons -->
     <div class="container-fluid">
-        <img src="https://www.w3schools.com/howto/img_avatar.png" id="profile-pic" alt="Profile-pic">
+        <img src="${data.data.avatar_url}" id="profile-pic" alt="Profile-pic">
 
 
-        <p class="h1">Nikola Jovanovic </p>
+        <p class="h1">${data.data.name}</p>
 
-        <p class="h5">Front & back end web developer</p>
+        <p class="h5">${data.data.bio}</p>
         <br>
-        <button type="button" class="btn">Github</button>
-        <button type="button" class="btn">My Blog</button>
+        <a href="${data.data.url}" target="_blank"><button type="button" class="btn">Github</button></a> 
+         <a href="${data.data.blog}" target="_blank"><button type="button" class="btn">My Blog</button></a>
     </div>
     <!-- end of container fluid -->
     <!-- container for username & location -->
     <div class="container" id="info">
-        <p class="h3">Nikola4work</p>
-        <p class="h6">Arlington, V.A </p>
+        <p class="h3">${response.username}</p>
+        <p class="h6"><a href="https://www.google.com/maps/search/?api=1&query=${data.data.location}" target="_blank">${data.data.location}</a></p>
     </div>
     <!-- end of container username & location -->
 
     <!-- grid layout -->
     <div class="container" id="layout">
         <div class="row">
-            <div class="col" id="adjust">Public Repositories</div>
-            <div class="col">GitHub Stars</div>
+            <div class="col" id="adjust">Public Repositories: ${data.data.public_repos}</div>
+            <div class="col">GitHub Stars: </div>
             <div class="w-100"></div>
-            <div class="col" id="adjust">Followers</div>
-            <div class="col">Following</div>
+            <div class="col" id="adjust">Followers: ${data.data.followers}</div>
+            <div class="col">Following: ${data.data.following}</div>
         </div>
     </div>
     <!-- end of grid location -->
