@@ -15,7 +15,7 @@ var gs = require("github-scraper");
         },
         {
             type: "input",
-            message: "What is your favorite color?",
+            message: "Enter your favorite color?",
             name: "favColor"
         }
     ])
