@@ -28,6 +28,7 @@
 </head>
 
 <body>
+    <!-- container fluid contains img,name,bio,buttons -->
     <div class="container-fluid">
         <img src="https://www.w3schools.com/howto/img_avatar.png" id="profile-pic" alt="Profile-pic">
 
@@ -36,12 +37,28 @@
 
         <p class="h5">Front & back end web developer</p>
         <br>
-        <button type="button" class="btn btn-light">Github</button>
-        <button type="button" class="btn btn-light">My Blog</button>
-
-
-
+        <button type="button" class="btn">Github</button>
+        <button type="button" class="btn">My Blog</button>
     </div>
+    <!-- end of container fluid -->
+    <!-- container for username & location -->
+    <div class="container" id="info">
+        <p class="h3">Nikola4work</p>
+        <p class="h6">Arlington, V.A </p>
+    </div>
+    <!-- end of container username & location -->
+
+    <!-- grid layout -->
+    <div class="container" id="layout">
+        <div class="row">
+            <div class="col" id="adjust">Public Repositories</div>
+            <div class="col">GitHub Stars</div>
+            <div class="w-100"></div>
+            <div class="col" id="adjust">Followers</div>
+            <div class="col">Following</div>
+        </div>
+    </div>
+    <!-- end of grid location -->
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
