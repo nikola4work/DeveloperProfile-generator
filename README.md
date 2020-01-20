@@ -1,6 +1,6 @@
 # DeveloperProfile-generator
 
-#### DeveloperProfile-generato, repo 1/19/20
+#### DeveloperProfile-generator, Repo 1/19/20
 
 #### By Nikola Jovanovic
 
@@ -15,9 +15,9 @@ The PDF will be populated with the following:
 * Profile image
 * User name
 * Links to the following:
-  * User location via Google Maps
-  * User GitHub profile
-  * User blog
+* User location via Google Maps
+* User GitHub profile
+* User blog
 * User bio
 * Number of public repositories
 * Number of followers
@@ -29,6 +29,7 @@ The PDF will be populated with the following:
 
 
 
+<img src="https://github.com/nikola4work/DeveloperProfile-generator/blob/master/ScreenRecording/gif.gif">
 
 
 
