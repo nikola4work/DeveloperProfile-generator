@@ -41,7 +41,7 @@ inquirer
                     converterPath: electron.converters.PDF
                 });
 
-                //hTML template for pdf
+                //HTML template for pdf
                 conversion({
                         html: `<!doctype html>
 <html lang="en">
@@ -109,6 +109,8 @@ inquirer
             border: 1px solid black;
             text-align: center;
             border-radius: 20px;
+              -webkit-box-shadow: 5px 5px 15px 5px #000000;
+    box-shadow: 5px 5px 15px 5px #000000;
             background-color: ${response.favoriteColor};
 
         }
@@ -119,6 +121,8 @@ inquirer
             margin-top: 40px;
             padding: 20px;
             border-radius: 20px;
+              -webkit-box-shadow: 5px 5px 15px 5px #000000;
+    box-shadow: 5px 5px 15px 5px #000000;
             background-color: ${response.favoriteColor};
 
         }
@@ -137,6 +141,8 @@ inquirer
             margin-left: 25px;
             border-radius: 20px;
             font-size: 20px;
+              -webkit-box-shadow: 5px 5px 15px 5px #000000;
+    box-shadow: 5px 5px 15px 5px #000000;
             background-color: ${response.favoriteColor};
 
         }
@@ -171,7 +177,7 @@ inquirer
 
         <p class="h5">${data.data.bio}</p>
         <br>
-        <a href="${data.data.url}" target="_blank"><button type="button" class="btn">Github</button></a> 
+        <a href="${data.data.html_url}" target="_blank"><button type="button" class="btn">Github</button></a> 
          <a href="${data.data.blog}" target="_blank"><button type="button" class="btn">My Blog</button></a>
     </div>
     <!-- end of container fluid -->
@@ -186,7 +192,7 @@ inquirer
     <div class="container" id="layout">
         <div class="row">
             <div class="col" id="adjust">Public Repositories: ${data.data.public_repos}</div>
-            <div class="col">GitHub Stars: </div>
+            <div class="col">GitHub Stars:${data.data.starred} </div>
             <div class="w-100"></div>
             <div class="col" id="adjust">Followers: ${data.data.followers}</div>
             <div class="col">Following: ${data.data.following}</div>
