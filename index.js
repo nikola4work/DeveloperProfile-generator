@@ -7,10 +7,10 @@ const inquirer = require("inquirer");
 const electron = require("electron-html-to");
 var gs = require("github-scraper");
 
-inquirer
+
 
 // This will ask user to eneter username and favvorite color
-    .prompt([{
+inquirer.prompt([{
             type: "input",
             message: "Enter a github username",
             name: "username"
@@ -27,23 +27,25 @@ inquirer
         var githubUrl = `https://api.github.com/users/${response.username}`;
 
         // returns the users response for stars
-        var starCountUrl = `https://api.github.com/users/${response.username}/repos?per_page=100`;
+        let starCountUrl = `/${response.username}`;
+        gs(starCountUrl, function(err, gsData) {
 
-        //Using Axios to retrieve the user data from github api
-        axios
-            .get(githubUrl)
-            .then(function(data) {
-                //Console.log the returned data
-                console.log(data);
 
-                //convert html to PDF
-                var conversion = electron({
-                    converterPath: electron.converters.PDF
-                });
+            //Using Axios to retrieve the user data from github api
+            axios.get(githubUrl)
+                .then(function(data) {
+                    //Console.log the returned data
+                    console.log(data);
 
-                //HTML template for pdf
-                conversion({
-                        html: `<!doctype html>
+                    //convert html to PDF
+                    var conversion = electron({
+                        converterPath: electron.converters.PDF
+                    });
+
+
+                    //HTML template for pdf
+                    conversion({
+                            html: `<!doctype html>
 <html lang="en">
 
 <head>
@@ -192,7 +194,7 @@ inquirer
     <div class="container" id="layout">
         <div class="row">
             <div class="col" id="adjust">Public Repositories: ${data.data.public_repos}</div>
-            <div class="col">GitHub Stars:${data.data.starred} </div>
+            <div class="col">GitHub Stars:${gsData.stars} </div>
             <div class="w-100"></div>
             <div class="col" id="adjust">Followers: ${data.data.followers}</div>
             <div class="col">Following: ${data.data.following}</div>
@@ -208,19 +210,21 @@ inquirer
 </body>
 
 </html>`
-                    },
+                        },
 
-                    function(err, result) {
-                        if (err) {
-                            return console.error(err);
+                        function(err, result) {
+                            if (err) {
+                                return console.error(err);
+                            }
+
+                            result.stream.pipe(fs.createWriteStream(`${data.data.login}.pdf`));
+                            conversion.kill();
                         }
-
-                        result.stream.pipe(fs.createWriteStream(`${data.data.login}.pdf`));
-                        conversion.kill();
-                    }
-                );
-            })
-            .catch(function(error) {
-                console.log(error);
-            });
+                    );
+                })
+                .catch(function(error) {
+                    console.log(error);
+                });
+            // here we end starCount function 
+        })
     });
