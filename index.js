@@ -7,10 +7,9 @@ const inquirer = require("inquirer");
 const electron = require("electron-html-to");
 var gs = require("github-scraper");
 
-
-
 // This will ask user to eneter username and favvorite color
-inquirer.prompt([{
+inquirer
+    .prompt([{
             type: "input",
             message: "Enter a github username",
             name: "username"
@@ -29,10 +28,9 @@ inquirer.prompt([{
         // returns the users response for stars
         let starCountUrl = `/${response.username}`;
         gs(starCountUrl, function(err, gsData) {
-
-
             //Using Axios to retrieve the user data from github api
-            axios.get(githubUrl)
+            axios
+                .get(githubUrl)
                 .then(function(data) {
                     //Console.log the returned data
                     console.log(data);
@@ -41,7 +39,6 @@ inquirer.prompt([{
                     var conversion = electron({
                         converterPath: electron.converters.PDF
                     });
-
 
                     //HTML template for pdf
                     conversion({
@@ -68,11 +65,20 @@ inquirer.prompt([{
     <!-- css style -->
    
         
-    <style>
+  <style> 
+
+  @media print{
+
+  
         body {
-            -webkit-print-color-adjust: exact !important;
+           -webkit-print-color-adjust: exact !important;
             font-family: "Delius Swash Caps", cursive;
             font-family: "Patrick Hand SC", cursive;
+            background-image: url("https://insights.dice.com/wp-content/uploads/2019/11/Screen-Shot-2019-11-14-at-10.37.26-AM.png"!important);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-color: rgba(0, 0, 0, 0.5);
         }
         
         #profile-pic {
@@ -111,10 +117,9 @@ inquirer.prompt([{
             border: 1px solid black;
             text-align: center;
             border-radius: 20px;
-              -webkit-box-shadow: 5px 5px 15px 5px #000000;
-    box-shadow: 5px 5px 15px 5px #000000;
+            -webkit-box-shadow: 5px 5px 15px 5px #000000 !important;
+            box-shadow: 5px 5px 15px 5px #000000 !important;
             background-color: ${response.favoriteColor};
-
         }
         
         #info {
@@ -123,10 +128,9 @@ inquirer.prompt([{
             margin-top: 40px;
             padding: 20px;
             border-radius: 20px;
-              -webkit-box-shadow: 5px 5px 15px 5px #000000;
-    box-shadow: 5px 5px 15px 5px #000000;
+            -webkit-box-shadow: 5px 5px 15px 5px #000000 !important;
+            box-shadow: 5px 5px 15px 5px #000000 !important;
             background-color: ${response.favoriteColor};
-
         }
         
         #layout {
@@ -134,7 +138,6 @@ inquirer.prompt([{
             text-align: center;
             border-radius: 20px;
             font-size: 25px;
-            
         }
         
         .col {
@@ -143,17 +146,13 @@ inquirer.prompt([{
             margin-left: 25px;
             border-radius: 20px;
             font-size: 20px;
-              -webkit-box-shadow: 5px 5px 15px 5px #000000;
-    box-shadow: 5px 5px 15px 5px #000000;
+            -webkit-box-shadow: 5px 5px 15px 5px #000000 !important;
+            box-shadow: 5px 5px 15px 5px #000000 !important;
             background-color: ${response.favoriteColor};
-
         }
-
-        
         
         #adjust {
             margin-left: 5px;
-           
         }
         
         .w-100 {
@@ -163,8 +162,9 @@ inquirer.prompt([{
         #bcg-color {
             max-width: 100%;
             max-height: 100%;
-            
+             
         }
+    }
     </style>
 
 </head>
@@ -217,7 +217,9 @@ inquirer.prompt([{
                                 return console.error(err);
                             }
 
-                            result.stream.pipe(fs.createWriteStream(`${data.data.login}.pdf`));
+                            result.stream.pipe(
+                                fs.createWriteStream(`${data.data.login}.pdf`)
+                            );
                             conversion.kill();
                         }
                     );
@@ -225,6 +227,6 @@ inquirer.prompt([{
                 .catch(function(error) {
                     console.log(error);
                 });
-            // here we end starCount function 
-        })
+            // here we end starCount function
+        });
     });
