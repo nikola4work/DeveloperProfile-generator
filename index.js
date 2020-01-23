@@ -74,11 +74,8 @@ inquirer
            -webkit-print-color-adjust: exact !important;
             font-family: "Delius Swash Caps", cursive;
             font-family: "Patrick Hand SC", cursive;
-            background-image: url("https://insights.dice.com/wp-content/uploads/2019/11/Screen-Shot-2019-11-14-at-10.37.26-AM.png"!important);
-            background-position: center;
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-color: rgba(0, 0, 0, 0.5);
+               background: url("https://thumbs.dreamstime.com/b/autumn-oak-leaf-fantastic-beautiful-spray-bubbles-blue-background-magic-autumn-blue-background-yellow-oak-leaf-158238643.jpg")!important;
+     
         }
         
         #profile-pic {
@@ -88,6 +85,7 @@ inquirer
             display: block;
             margin-left: auto;
             margin-right: auto;
+             filter: grayscale(100%) !important;
         }
         
         .btn {
@@ -113,6 +111,7 @@ inquirer
         }
         
         .container-fluid {
+            max-width: 95%;
             margin-top: 5px;
             border: 1px solid black;
             text-align: center;
