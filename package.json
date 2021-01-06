@@ -13,7 +13,7 @@
   "author": "Niko",
   "license": "ISC",
   "dependencies": {
-    "axios": "^0.19.1",
+    "axios": "^0.21.1",
     "electron": "^5.0.12",
     "electron-html-to": "^2.6.0",
     "fs": "0.0.1-security",
